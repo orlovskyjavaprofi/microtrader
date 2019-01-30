@@ -9,6 +9,10 @@ REPO_NAME ?= microtrader
 TEST_REPO_NAME ?= microtrader-dev
 TEST_DIR ?= build/test-results/junit/
 
+DOCKER_REGISTRY ?= 364775663450.dkr.ecr.us-east-2.amazonaws.com
+AWS_ACCOUNT_ID ?= 364775663450
+DOCKER_LOGIN_EXPRESSION := eval $$(aws ecr get-login --registry-ids $(AWS_ACCOUNT_ID))
+
 # Release settings
 export HTTP_PORT ?= 8000
 export AUDIT_HTTP_ROOT ?= /audit/
